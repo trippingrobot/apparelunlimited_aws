@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel='stylesheet', href='bootstrap.min.css'>
+        <link rel='stylesheet', href='base.css'>
+        <script type="text/javascript" src='async.min.js'></script>
+        <script type="text/javascript" src='hmac-sha256.js'></script>
+        <script type="text/javascript" src='enc-base64-min.js'></script>
+    </head>
+    <body>
+        <div ng-app='apparel'>
+            <div ng-controller="ItemsController">
+                <ul id="items">
+                    <li class="upload">
+                        <button class="btn btn-primary file-btn">Upload ASIN's
+                            <input type="file" ng-file-select="upload($files)">
+                        </button>
+                    </li>
+                    <li>{{ api }}</li>
+                    <li ng-show="items.length == 0 && !loading">No items</li>
+                    <li ng-show="loading">Loading...</li>
+                    <li class="item" ng-repeat="item in items">
+                         <h3 class="title">{{ item.title }}</h3>
+
+                        <div class="metrics"><span><b>SKU:</b> {{ item.sku }}</span>
+         <span><b>ASIN:</b> {{item.asin}}</span>
+
+                        </div>
+                        <img class="image" ng-src="{{item.image}}"></img>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script type="text/javascript" src='angular.min.js'></script>
+        <script type="text/javascript" src='angular-file-upload.min.js'></script>
+        <script type="text/javascript" src='script.js'></script>
+    </body>
+</html>
