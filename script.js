@@ -59,7 +59,7 @@ function ItemsController($scope, $timeout, $http, $upload, $q) {
             console.log(node);
 
             var item = {
-                sku: _tryAndReturnValue(node, 'Model'),
+                sku: _tryAndReturnValue(node, 'EAN'),
                 asin: sku,
                 title: _tryAndReturnValue(node, 'Title'),
                 image:_tryAndReturnValue(node, 'LargeImage > URL')
